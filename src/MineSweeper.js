@@ -8,7 +8,6 @@ export default class{
         this.flagMap;
         this.openMap;
         this.gameOver = false;
-        // this.
     }
 
     setMineMap(map){
