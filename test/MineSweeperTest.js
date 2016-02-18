@@ -21,7 +21,7 @@ describe('array2d', () => {
     });
 
     describe('open', () => {
-        
+
         let mineSweeper;
         beforeEach(() => {
             mineSweeper = new MineSweeper();
@@ -52,19 +52,11 @@ describe('array2d', () => {
 
     });
 
+    describe('openMap', () => {
 
 
-    //
-    // it('set', () => {
-    //     var expect = [
-    //         [0, 2, 0],
-    //         [0, 0, 3],
-    //     ];
-    //     array2d.set(0, 1, 2);
-    //     array2d.set(1, 2, 3);
-    //     assert.deepEqual(expect, array2d.toArray());
-    //
-    // });
+    });
+
 
 
 });
