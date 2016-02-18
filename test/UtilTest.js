@@ -3,15 +3,21 @@ import Util from '../src/Util';
 
 describe('Util test', () => {
 
-    it('isArray', () => {
-        assert(Util.isArray(1) === false);
-        assert(Util.isArray({}) === false);
-        assert(Util.isArray('text') === false);
-        assert(Util.isArray(function(){}) === false);
+    describe('isArray', () => {
 
-        assert(Util.isArray([]) === true);
-        assert(Util.isArray([1, 2, 3]) === true);
-        assert(Util.isArray([[1, 2], [3, 4]]) === true);
+        it('array', () => {
+            assert(Util.isArray([]) === true);
+            assert(Util.isArray([1, 2, 3]) === true);
+            assert(Util.isArray([[1, 2], [3, 4]]) === true);
+        });
+
+        it('not array', () => {
+            assert(Util.isArray(1) === false);
+            assert(Util.isArray({}) === false);
+            assert(Util.isArray('text') === false);
+            assert(Util.isArray(function(){}) === false);
+        });
+
     });
 
     describe('clone', () => {
