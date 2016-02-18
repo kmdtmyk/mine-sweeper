@@ -15,13 +15,7 @@ export default class{
         let row = map.length;
         let col = map[0].length;
 
-        this.mineMap = new Array2D(row, col, 0);
-        for(let i = 0; i < row; i++){
-            for(let j = 0; j < col; j++){
-                this.mineMap.set(i, j, map[i][j]);
-            }
-        }
-
+        this.mineMap = new Array2D(map);
         this.flagMap = new Array2D(row, col, 0);
         this.openMap = new Array2D(row, col, 0);
     }
