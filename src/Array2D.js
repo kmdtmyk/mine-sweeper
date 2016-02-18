@@ -1,3 +1,4 @@
+import Util from "./Util";
 
 
 export default class{
@@ -8,9 +9,9 @@ export default class{
             return;
         }
 
-        if(this._isArray(arguments[0])){
+        if(Util.isArray(arguments[0])){
             let map = arguments[0];
-            this.array2d = this._cloneObject(map);
+            this.array2d = Util.clone(map);
         }else{
             let row = arguments[0];
             let col = arguments[1];
@@ -43,16 +44,7 @@ export default class{
     }
 
     toArray(){
-        return this._cloneObject(this.array2d);
+        return Util.clone(this.array2d);
     }
-
-    _isArray(object) {
-        return Object.prototype.toString.call(object) === '[object Array]';
-    }
-
-    _cloneObject(object){
-        return JSON.parse(JSON.stringify(object));
-    }
-
 
 }
