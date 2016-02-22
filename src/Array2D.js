@@ -68,4 +68,13 @@ export default class{
         return result;
     }
 
+    map(callback){
+        for(var i = 0; i < this.array2d.length; i++){
+            for(var j = 0; j < this.array2d[0].length; j++){
+                this.array2d[i][j] = callback(this.array2d[i][j]);
+            }
+        }
+        return this;
+    }
+
 }

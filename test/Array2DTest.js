@@ -85,4 +85,19 @@ describe('array2d', function(){
         assert(array2d.sum() === "abcd");
     });
 
+    it('map', function(){
+        array2d = new Array2D([
+            [1, 3],
+            [9, 15],
+        ]);
+        array2d.map(function(value){
+            return value * 10;
+        });
+        let expect = [
+            [10, 30],
+            [90, 150],
+        ];
+        assert.deepEqual(array2d.toArray(), expect);
+    });
+
 });
