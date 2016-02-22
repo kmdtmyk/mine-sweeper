@@ -1,11 +1,11 @@
 import Array2D from "../src/Array2D";
 
 
-describe('array2d', () => {
+describe('array2d', function(){
 
     let array2d;
 
-    beforeEach(() => {
+    beforeEach(function(){
         array2d = new Array2D(2, 3, 0);
     });
 
@@ -18,7 +18,7 @@ describe('array2d', () => {
         assert.deepEqual(expect, array2d.toArray());
     });
 
-    it('toArray', () => {
+    it('toArray', function(){
         var expect = [
             [0, 0, 0],
             [0, 0, 0],
@@ -27,7 +27,7 @@ describe('array2d', () => {
     });
 
 
-    it('set', () => {
+    it('set', function(){
         var expect = [
             [0, 2, 0],
             [0, 0, 3],
