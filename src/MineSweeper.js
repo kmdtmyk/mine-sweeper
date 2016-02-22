@@ -1,7 +1,7 @@
 import Array2D from "./Array2D";
 
-export default class{
 
+export default class{
 
     constructor(){
         this.mineMap;
@@ -23,8 +23,18 @@ export default class{
         return this.mineMap.toArray();
     }
 
-    getMineCount(){
+    getOpenMap(){
+        return this.openMap.toArray();
+    }
 
+    getFlagMap(){
+        return this.flagMap.toArray();
+    }
+
+    getMineCount(){
+        let count = 0;
+
+        return count;
     }
 
     getFlagCount(){
@@ -42,42 +52,13 @@ export default class{
         }
     }
 
-    openAround(){
+    openAround(y, x){
 
     }
 
     isGameOver(){
         return this.gameOver;
     }
-
-    // constructor(row, col, value){
-    //     this.array2d = [];
-    //     for(var i = 0; i < row; i++){
-    //         var array = [];
-    //         for(var j = 0; j < col; j++){
-    //             array.push(value);
-    //         }
-    //         this.array2d.push(array);
-    //     }
-    // }
-    //
-    // get(y, x){
-    //     if(this.array2d[y] == undefined){
-    //         return undefined;
-    //     }
-    //     return this.array2d[y][x];
-    // }
-    //
-    // set(y, x, value){
-    //     if(this.array2d[y] == undefined){
-    //         return;
-    //     }
-    //     this.array2d[y][x] = value;
-    // }
-    //
-    // toArray(){
-    //     return JSON.parse(JSON.stringify(this.array2d));
-    // }
 
 
 }

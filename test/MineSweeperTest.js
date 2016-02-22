@@ -1,16 +1,15 @@
 import MineSweeper from "../src/MineSweeper";
 
 
-describe('array2d', () => {
+describe('array2d', function(){
 
     let mineSweeper;
 
-    beforeEach(() => {
+    beforeEach(function(){
         mineSweeper = new MineSweeper();
     });
 
-    describe('setMineMap', () => {
-        let mineSweeper = new MineSweeper();
+    it('setMineMap', function(){
         let mineMap = [
             [1, 0, 0, 0],
             [0, 1, 0, 0],
@@ -20,11 +19,9 @@ describe('array2d', () => {
         assert.deepEqual(mineMap, mineSweeper.getMineMap());
     });
 
-    describe('open', () => {
+    describe('open', function(){
 
-        let mineSweeper;
-        beforeEach(() => {
-            mineSweeper = new MineSweeper();
+        beforeEach(function(){
             let mineMap = [
                 [1, 1, 1],
                 [1, 0, 0],
@@ -33,28 +30,51 @@ describe('array2d', () => {
             mineSweeper.setMineMap(mineMap);
         });
 
-        it('mine cell', () => {
+        it('mine cell', function(){
             mineSweeper.open(0, 0);
             assert(mineSweeper.isGameOver() === true);
         });
 
-        it('empty cell', () => {
+        it('empty cell', function(){
             mineSweeper.open(1, 1);
             assert(mineSweeper.isGameOver() === false);
             mineSweeper.open(1, 2);
             assert(mineSweeper.isGameOver() === false);
         });
 
-        it('out of bounds index', () => {
+        it('out of bounds index', function(){
             mineSweeper.open(100, 100);
             assert(mineSweeper.isGameOver() === false);
         });
 
     });
 
-    describe('openMap', () => {
+    describe('openMap', function(){
 
 
+    });
+
+    it('getMineCount', function(){
+        mineSweeper.setMineMap([
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+        ]);
+        assert(mineSweeper.getMineCount() === 0);
+
+        mineSweeper.setMineMap([
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+        ]);
+        assert(mineSweeper.getMineCount() === 12);
+
+        mineSweeper.setMineMap([
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+            [1, 0, 0, 1],
+        ]);
+        assert(mineSweeper.getMineCount() === 3);
     });
 
 
