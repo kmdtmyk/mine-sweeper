@@ -56,4 +56,16 @@ export default class{
         return this;
     }
 
+    sum(){
+        let result = 0;
+        this.forEach(function(value){
+            if(!result){
+                result = value;
+            }else{
+                result += value;
+            }
+        });
+        return result;
+    }
+
 }

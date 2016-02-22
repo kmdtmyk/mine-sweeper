@@ -59,4 +59,18 @@ describe('array2d', function(){
         assert(contcat === "abcd");
     });
 
+    it('sum', function(){
+        array2d = new Array2D([
+            [10, 3],
+            [8, 50],
+        ]);
+        assert(array2d.sum() === 71);
+
+        array2d = new Array2D([
+            ["a", "b"],
+            ["c", "d"],
+        ]);
+        assert(array2d.sum() === "abcd");
+    });
+
 });
