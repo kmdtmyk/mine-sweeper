@@ -37,4 +37,26 @@ describe('array2d', () => {
         assert.deepEqual(expect, array2d.toArray());
     });
 
+    it('forEach', function(){
+        array2d = new Array2D([
+            [1, 2],
+            [3, 4],
+        ]);
+        let sum = 0;
+        array2d.forEach(function(value){
+            sum += value;
+        })
+        assert(sum === 10);
+
+        array2d = new Array2D([
+            ["a", "b"],
+            ["c", "d"],
+        ]);
+        let contcat = "";
+        array2d.forEach(function(value){
+            contcat += value;
+        })
+        assert(contcat === "abcd");
+    });
+
 });

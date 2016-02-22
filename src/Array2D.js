@@ -47,4 +47,13 @@ export default class{
         return Util.clone(this.array2d);
     }
 
+    forEach(callback){
+        for(var i = 0; i < this.array2d.length; i++){
+            for(var j = 0; j < this.array2d[0].length; j++){
+                callback(this.array2d[i][j]);
+            }
+        }
+        return this;
+    }
+
 }
