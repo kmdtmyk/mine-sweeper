@@ -54,7 +54,7 @@ describe('array2d', function(){
 
     });
 
-    xit('getMineCount', function(){
+    it('getMineCount', function(){
         mineSweeper.setMineMap([
             [0, 0, 0, 0],
             [0, 0, 0, 0],

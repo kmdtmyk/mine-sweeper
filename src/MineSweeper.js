@@ -32,9 +32,7 @@ export default class{
     }
 
     getMineCount(){
-        let count = 0;
-
-        return count;
+        return this.mineMap.sum();
     }
 
     getFlagCount(){
