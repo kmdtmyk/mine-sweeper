@@ -9,13 +9,26 @@ describe('array2d', function(){
         array2d = new Array2D(2, 3, 0);
     });
 
-    it('constructor', () => {
-        var expect = [
-            [1, 2, 3],
-            [4, 5, 6],
-        ];
-        array2d = new Array2D(expect);
-        assert.deepEqual(expect, array2d.toArray());
+    describe('constructor', function(){
+
+        it('row, col and value arguments', function(){
+            array2d = new Array2D(2, 3, 0);
+            var expect = [
+                [0, 0, 0],
+                [0, 0, 0],
+            ];
+            assert.deepEqual(expect, array2d.toArray());
+        });
+
+        it('array argument', function(){
+            var expect = [
+                [1, 2, 3],
+                [4, 5, 6],
+            ];
+            array2d = new Array2D(expect);
+            assert.deepEqual(expect, array2d.toArray());
+        });
+
     });
 
     it('toArray', function(){
@@ -25,7 +38,6 @@ describe('array2d', function(){
         ];
         assert.deepEqual(expect, array2d.toArray());
     });
-
 
     it('set', function(){
         var expect = [
