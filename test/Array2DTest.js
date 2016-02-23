@@ -6,13 +6,13 @@ describe('array2d', function(){
     let array2d;
 
     beforeEach(function(){
-        array2d = new Array2D(2, 3, 0);
+        array2d = new Array2D(3, 2, 0);
     });
 
     describe('constructor', function(){
 
         it('row, col and value arguments', function(){
-            array2d = new Array2D(2, 3, 0);
+            array2d = new Array2D(3, 2, 0);
             var expect = [
                 [0, 0, 0],
                 [0, 0, 0],
@@ -40,13 +40,22 @@ describe('array2d', function(){
     });
 
     it('set', function(){
-        var expect = [
+        array2d = new Array2D(3, 2, 0);
+        array2d.set(1, 0, 2);
+        array2d.set(2, 1, 3);
+        assert.deepEqual(array2d.toArray(), [
             [0, 2, 0],
             [0, 0, 3],
-        ];
-        array2d.set(0, 1, 2);
-        array2d.set(1, 2, 3);
-        assert.deepEqual(expect, array2d.toArray());
+        ]);
+
+        array2d = new Array2D(2, 3, 0);
+        array2d.set(0, 2, 5);
+        array2d.set(1, 1, 3);
+        assert.deepEqual(array2d.toArray(), [
+            [0, 0],
+            [0, 3],
+            [5, 0],
+        ]);
     });
 
     it('forEach', function(){

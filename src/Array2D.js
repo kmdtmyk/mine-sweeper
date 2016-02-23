@@ -13,8 +13,8 @@ export default class{
             let map = arguments[0];
             this.array2d = Util.clone(map);
         }else{
-            let row = arguments[0];
-            let col = arguments[1];
+            let col = arguments[0];
+            let row = arguments[1];
             let value = arguments[2];
 
             this.array2d = [];
@@ -29,14 +29,14 @@ export default class{
 
     }
 
-    get(y, x){
+    get(x, y){
         if(this.array2d[y] == undefined){
             return undefined;
         }
         return this.array2d[y][x];
     }
 
-    set(y, x, value){
+    set(x, y, value){
         if(this.array2d[y] == undefined){
             return;
         }
@@ -48,9 +48,9 @@ export default class{
     }
 
     forEach(callback){
-        for(var i = 0; i < this.array2d.length; i++){
-            for(var j = 0; j < this.array2d[0].length; j++){
-                callback(this.array2d[i][j]);
+        for(var y = 0; y < this.array2d.length; y++){
+            for(var x = 0; x < this.array2d[0].length; x++){
+                callback(this.array2d[y][x]);
             }
         }
         return this;
@@ -69,9 +69,9 @@ export default class{
     }
 
     map(callback){
-        for(var i = 0; i < this.array2d.length; i++){
-            for(var j = 0; j < this.array2d[0].length; j++){
-                this.array2d[i][j] = callback(this.array2d[i][j]);
+        for(var y = 0; y < this.array2d.length; y++){
+            for(var x = 0; x < this.array2d[0].length; x++){
+                this.array2d[y][x] = callback(this.array2d[y][x]);
             }
         }
         return this;

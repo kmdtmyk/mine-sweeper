@@ -16,9 +16,9 @@ export default class{
         let col = map[0].length;
 
         this.mineMap = new Array2D(map);
-        this.flagMap = new Array2D(row, col, 0);
-        this.openMap = new Array2D(row, col, 0);
-        this.countMap = new Array2D(row, col, 0);
+        this.flagMap = new Array2D(col, row, 0);
+        this.openMap = new Array2D(col, row, 0);
+        this.countMap = new Array2D(col, row, 0);
     }
 
     getMineMap(){
