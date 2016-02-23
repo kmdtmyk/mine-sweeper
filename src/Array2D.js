@@ -69,11 +69,9 @@ export default class{
     }
 
     map(callback){
-        for(var y = 0; y < this.array2d.length; y++){
-            for(var x = 0; x < this.array2d[0].length; x++){
-                this.array2d[y][x] = callback(this.array2d[y][x]);
-            }
-        }
+        this.forEach((value, x, y) => {
+            this.set(x, y, callback(value));
+        })
         return this;
     }
 
