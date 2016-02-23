@@ -53,7 +53,6 @@ export default class{
                 callback(this.array2d[y][x], x, y);
             }
         }
-        return this;
     }
 
     sum(){
@@ -72,7 +71,6 @@ export default class{
         this.forEach((value, x, y) => {
             this.set(x, y, callback(value));
         })
-        return this;
     }
 
 }
