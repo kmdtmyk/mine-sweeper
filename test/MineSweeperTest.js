@@ -21,6 +21,14 @@ describe('array2d', function(){
 
     describe('open', function(){
 
+        it('mine cell', function(){
+
+        });
+
+    });
+
+    describe('gameOver', function(){
+
         beforeEach(function(){
             let mineMap = [
                 [1, 1, 1],
@@ -49,8 +57,57 @@ describe('array2d', function(){
 
     });
 
-    describe('openMap', function(){
+    xit('countMap', function(){
 
+        mineSweeper.setMineMap([
+            [0, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+        ]);
+        assert.deepEqual(mineSweeper.getCountMap(), [
+            [1, 1, 1, 0],
+            [1, 0, 1, 0],
+            [1, 1, 1, 0],
+        ]);
+
+        mineSweeper.setMineMap([
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 1],
+        ]);
+        assert.deepEqual(mineSweeper.getCountMap(), [
+            [1, 2, 1, 0],
+            [2, 1, 2, 1],
+            [1, 1, 2, 0],
+        ]);
+
+    });
+
+    xit('openMap', function(){
+
+        mineSweeper.setMineMap([
+            [0, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+        ]);
+        mineSweeper.open(1, 3);
+        assert.deepEqual(mineSweeper.getOpenMap(), [
+            [0, 0, 1, 1],
+            [0, 0, 1, 1],
+            [0, 0, 1, 1],
+        ]);
+
+        mineSweeper.setMineMap([
+            [0, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+        ]);
+        mineSweeper.open(1, 1);
+        assert.deepEqual(mineSweeper.getOpenMap(), [
+            [0, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+        ]);
 
     });
 

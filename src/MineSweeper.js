@@ -7,6 +7,7 @@ export default class{
         this.mineMap;
         this.flagMap;
         this.openMap;
+        this.countMap;
         this.gameOver = false;
     }
 
@@ -17,6 +18,7 @@ export default class{
         this.mineMap = new Array2D(map);
         this.flagMap = new Array2D(row, col, 0);
         this.openMap = new Array2D(row, col, 0);
+        this.countMap = new Array2D(row, col, 0);
     }
 
     getMineMap(){
