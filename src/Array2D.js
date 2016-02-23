@@ -50,7 +50,7 @@ export default class{
     forEach(callback){
         for(var y = 0; y < this.array2d.length; y++){
             for(var x = 0; x < this.array2d[0].length; x++){
-                callback(this.array2d[y][x]);
+                callback(this.array2d[y][x], x, y);
             }
         }
         return this;

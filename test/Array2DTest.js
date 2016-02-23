@@ -58,26 +58,52 @@ describe('array2d', function(){
         ]);
     });
 
-    it('forEach', function(){
-        array2d = new Array2D([
-            [1, 2],
-            [3, 4],
-        ]);
-        let sum = 0;
-        array2d.forEach(function(value){
-            sum += value;
-        })
-        assert(sum === 10);
+    describe('forEach', function(){
 
-        array2d = new Array2D([
-            ["a", "b"],
-            ["c", "d"],
-        ]);
-        let contcat = "";
-        array2d.forEach(function(value){
-            contcat += value;
-        })
-        assert(contcat === "abcd");
+        it('callback function argument', function(){
+            array2d = new Array2D([
+                [1, 2],
+                [3, 4],
+            ]);
+            let sum = 0;
+            array2d.forEach(function(value){
+                sum += value;
+            });
+            assert(sum === 10);
+
+            array2d = new Array2D([
+                ["a", "b"],
+                ["c", "d"],
+            ]);
+            let contcat = "";
+            array2d.forEach(function(value){
+                contcat += value;
+            })
+            assert(contcat === "abcd");
+        });
+
+        it('x and y arguments', function(){
+            array2d = new Array2D([
+                [1, 2],
+                [3, 4],
+            ]);
+            let sum = 0;
+            array2d.forEach(function(value, x, y){
+                sum += array2d.get(x, y);
+            });
+            assert(sum === 10);
+
+            array2d = new Array2D([
+                ["a", "b"],
+                ["c", "d"],
+            ]);
+            let contcat = "";
+            array2d.forEach(function(value, x, y){
+                contcat += array2d.get(x, y);;
+            })
+            assert(contcat === "abcd");
+        });
+
     });
 
     it('sum', function(){
