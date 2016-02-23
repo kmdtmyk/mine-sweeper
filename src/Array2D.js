@@ -58,7 +58,7 @@ export default class{
 
     sum(){
         let result = 0;
-        this.forEach(function(value){
+        this.forEach((value) => {
             if(!result){
                 result = value;
             }else{
