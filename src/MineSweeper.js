@@ -73,12 +73,12 @@ export default class{
     getAroundMineCount(x, y){
         let count = 0;
         count += this.mineMap.get(x - 1, y - 1) || 0;
-        count += this.mineMap.get(x , y - 1) || 0;
+        count += this.mineMap.get(x    , y - 1) || 0;
         count += this.mineMap.get(x + 1, y - 1) || 0;
-        count += this.mineMap.get(x - 1, y) || 0;
-        count += this.mineMap.get(x + 1, y) || 0;
+        count += this.mineMap.get(x - 1, y    ) || 0;
+        count += this.mineMap.get(x + 1, y    ) || 0;
         count += this.mineMap.get(x - 1, y + 1) || 0;
-        count += this.mineMap.get(x , y + 1) || 0;
+        count += this.mineMap.get(x    , y + 1) || 0;
         count += this.mineMap.get(x + 1, y + 1) || 0;
         return count;
     }
