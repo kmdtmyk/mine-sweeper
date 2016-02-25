@@ -48,15 +48,15 @@ export default class{
     }
 
     forEach(callback){
-        this.array2d.forEach(function(array, y){
-            array.forEach(function(value, x){
+        this.array2d.forEach((array, y) => {
+            array.forEach((value, x) => {
                 callback(value, x, y);
             });
         });
     }
 
     sum(){
-        let result = 0;
+        let result;
         this.forEach((value) => {
             if(!result){
                 result = value;
