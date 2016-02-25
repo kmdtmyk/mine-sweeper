@@ -56,14 +56,31 @@ export default class{
     }
 
     open(x, y){
-        this.openMap.set(x, y);
-        if(this.mineMap.get(x, y) == 1){
-            this.gameOver = true;
+        if(this.openMap.get(x, y) !== 0){
+            return;
         }
+
+        this.openMap.set(x, y, 1);
+        if(this.mineMap.get(x, y) === 1){
+            this.gameOver = true;
+            return;
+        }
+
+        if(this.countMap.get(x, y) === 0){
+            this.openAround(x, y);
+        }
+
     }
 
     openAround(x, y){
-
+        this.open(x - 1, y - 1);
+        this.open(x    , y - 1);
+        this.open(x + 1, y - 1);
+        this.open(x - 1, y    );
+        this.open(x + 1, y    );
+        this.open(x - 1, y + 1);
+        this.open(x    , y + 1);
+        this.open(x + 1, y + 1);
     }
 
     isGameOver(){
