@@ -57,7 +57,7 @@ describe('array2d', function(){
 
     });
 
-    xit('countMap', function(){
+    it('countMap', function(){
 
         mineSweeper.setMineMap([
             [0, 0, 0, 0],
@@ -79,6 +79,19 @@ describe('array2d', function(){
             [1, 2, 1, 0],
             [2, 1, 2, 1],
             [1, 1, 2, 0],
+        ]);
+
+        mineSweeper.setMineMap([
+            [1, 1, 1],
+            [1, 0, 1],
+            [1, 1, 1],
+            [0, 0, 0],
+        ]);
+        assert.deepEqual(mineSweeper.getCountMap(), [
+            [2, 4, 2],
+            [4, 8, 4],
+            [2, 4, 2],
+            [2, 3, 2],
         ]);
 
     });

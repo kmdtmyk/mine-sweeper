@@ -69,7 +69,7 @@ export default class{
 
     map(callback){
         this.forEach((value, x, y) => {
-            this.set(x, y, callback(value));
+            this.set(x, y, callback(value, x, y));
         })
     }
 

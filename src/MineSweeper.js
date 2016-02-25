@@ -14,11 +14,17 @@ export default class{
     setMineMap(map){
         let row = map.length;
         let col = map[0].length;
+        this.row = row;
+        this.col = col;
 
         this.mineMap = new Array2D(map);
         this.flagMap = new Array2D(col, row, 0);
         this.openMap = new Array2D(col, row, 0);
         this.countMap = new Array2D(col, row, 0);
+        
+        this.countMap.map((value, x, y) => {
+            return this.getAroundMineCount(x, y);
+        });
     }
 
     getMineMap(){
@@ -31,6 +37,10 @@ export default class{
 
     getFlagMap(){
         return this.flagMap.toArray();
+    }
+
+    getCountMap(){
+        return this.countMap.toArray();
     }
 
     getMineCount(){
@@ -58,6 +68,19 @@ export default class{
 
     isGameOver(){
         return this.gameOver;
+    }
+
+    getAroundMineCount(x, y){
+        let count = 0;
+        count += this.mineMap.get(x - 1, y - 1) || 0;
+        count += this.mineMap.get(x , y - 1) || 0;
+        count += this.mineMap.get(x + 1, y - 1) || 0;
+        count += this.mineMap.get(x - 1, y) || 0;
+        count += this.mineMap.get(x + 1, y) || 0;
+        count += this.mineMap.get(x - 1, y + 1) || 0;
+        count += this.mineMap.get(x , y + 1) || 0;
+        count += this.mineMap.get(x + 1, y + 1) || 0;
+        return count;
     }
 
 
