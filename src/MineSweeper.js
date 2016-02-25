@@ -21,7 +21,7 @@ export default class{
         this.flagMap = new Array2D(col, row, 0);
         this.openMap = new Array2D(col, row, 0);
         this.countMap = new Array2D(col, row, 0);
-        
+
         this.countMap.map((value, x, y) => {
             return this.getAroundMineCount(x, y);
         });
@@ -55,14 +55,14 @@ export default class{
 
     }
 
-    open(y, x){
-        this.openMap.set(y, x);
-        if(this.mineMap.get(y, x) == 1){
+    open(x, y){
+        this.openMap.set(x, y);
+        if(this.mineMap.get(x, y) == 1){
             this.gameOver = true;
         }
     }
 
-    openAround(y, x){
+    openAround(x, y){
 
     }
 
