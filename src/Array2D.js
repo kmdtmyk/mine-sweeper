@@ -30,14 +30,14 @@ export default class{
     }
 
     get(x, y){
-        if(this.array2d[y] == undefined){
+        if(this.array2d[y] === undefined){
             return undefined;
         }
         return this.array2d[y][x];
     }
 
     set(x, y, value){
-        if(this.array2d[y] == undefined){
+        if(this.array2d[y] === undefined){
             return;
         }
         this.array2d[y][x] = value;
