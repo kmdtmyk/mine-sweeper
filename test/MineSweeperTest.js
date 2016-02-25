@@ -98,57 +98,84 @@ describe('array2d', function(){
 
     it('openMap', function(){
 
-        mineSweeper.setMineMap([
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-        ]);
-        mineSweeper.open(0, 0);
-        assert.deepEqual(mineSweeper.getOpenMap(), [
-            [1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1],
-            [1, 1, 1, 1, 1],
-        ]);
+        let tests = [
+            {
+                mineMap: [
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                ],
+                opens: [{
+                    x: 0,
+                    y: 0,
+                    expect: [
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                    ]
+                },{
+                    x: 3,
+                    y: 3,
+                    expect: [
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                    ]
+                }],
+            },{
+                mineMap: [
+                    [0, 0, 0, 0],
+                    [0, 1, 0, 0],
+                    [0, 0, 0, 0],
+                ],
+                opens: [{
+                    x: 2,
+                    y: 1,
+                    expect: [
+                        [0, 0, 0, 0],
+                        [0, 0, 1, 0],
+                        [0, 0, 0, 0],
+                    ]
+                },{
+                    x: 3,
+                    y: 1,
+                    expect: [
+                        [0, 0, 1, 1],
+                        [0, 0, 1, 1],
+                        [0, 0, 1, 1],
+                    ]
+                }],
+            },{
+                mineMap: [
+                    [0, 0, 0, 0],
+                    [0, 1, 0, 0],
+                    [0, 0, 0, 0],
+                ],
+                opens: [{
+                    x: 1,
+                    y: 1,
+                    expect: [
+                        [0, 0, 0, 0],
+                        [0, 1, 0, 0],
+                        [0, 0, 0, 0],
+                    ]
+                }],
+            },
+        ];
 
-        mineSweeper.setMineMap([
-            [0, 0, 0, 0],
-            [0, 1, 0, 0],
-            [0, 0, 0, 0],
-        ]);
-        mineSweeper.open(2, 1);
-        assert.deepEqual(mineSweeper.getOpenMap(), [
-            [0, 0, 0, 0],
-            [0, 0, 1, 0],
-            [0, 0, 0, 0],
-        ]);
-
-        mineSweeper.setMineMap([
-            [0, 0, 0, 0],
-            [0, 1, 0, 0],
-            [0, 0, 0, 0],
-        ]);
-        mineSweeper.open(3, 1);
-        assert.deepEqual(mineSweeper.getOpenMap(), [
-            [0, 0, 1, 1],
-            [0, 0, 1, 1],
-            [0, 0, 1, 1],
-        ]);
-
-        mineSweeper.setMineMap([
-            [0, 0, 0, 0],
-            [0, 1, 0, 0],
-            [0, 0, 0, 0],
-        ]);
-        mineSweeper.open(1, 1);
-        assert.deepEqual(mineSweeper.getOpenMap(), [
-            [0, 0, 0, 0],
-            [0, 1, 0, 0],
-            [0, 0, 0, 0],
-        ]);
+        tests.forEach(function(test){
+            test.opens.forEach(function(open){
+                mineSweeper.setMineMap(test.mineMap);
+                mineSweeper.open(open.x, open.y);
+                assert.deepEqual(mineSweeper.getOpenMap(), open.expect);
+            });
+        });
 
     });
 
